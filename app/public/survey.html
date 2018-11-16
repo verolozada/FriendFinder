@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Friend Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Acme|News+Cycle|Pathway+Gothic+One" rel="stylesheet">
+</head>
+
+<body>
+    <nav style="background-color: #0288d1">
+    </nav>
+    <div class="container">
+        <h3 style="color: #aeea00; text-align: center; font-family: 'Acme', sans-serif;">Let's Start</h3>
+        <div class="input-field col s12">
+            <h4 style="font-family: 'Pathway Gothic One', sans-serif;">About You</h4>
+            <br>
+            <div class="input-field col s12">
+                <h6>Name (required)</h6>
+                <input type="text" id="autocomplete-input name" class="autocomplete">
+            </div>
+            <div class="input-field col s12">
+                <h6>Link to your photo (required)</h6>
+                <input type="text" id="autocomplete-input photo" class="autocomplete">
+            </div>
+            <br>
+            <br>
+        </div>
+
+
+        <h4 style="font-family: 'Pathway Gothic One', sans-serif;">Questions</h4>
+        <br>
+        <div class="input-field col s12">
+            <h6>You prefer to stay at home on a friday night than going out to clubs</h6>
+            <select>
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+        <br>
+        <div class="input-field col s12">
+            <h6>You overthink decisions you made during the day</h6>
+            <select>
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (strongly agree)</option>
+            </select>
+        </div>
+        <br>
+        <div class="input-field col s12">
+            <h6>You are willing to try things out of your comfort zone</h6>
+            <select>
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+        <br>
+        <div class="input-field col s12">
+            <h6>You relate easily with others feelings</h6>
+            <select>
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+        <br>
+        <div class="input-field col s12">
+            <h6>You prefer outdoor activities rather than indoor activities</h6>
+            <select>
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+        <br>
+        <div class="input-field col s12">
+            <h6>People can rarely upset you</h6>
+            <select>
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+        <br>
+        <div class="input-field col s12">
+            <h6>You like group activities</h6>
+            <select>
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+        <br>
+        <div class="input-field col s12">
+            <h6>You relay more in your experience than your imagination</h6>
+            <select>
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+        <br>
+        <div class="input-field col s12">
+            <h6>You respect other's view easily</h6>
+            <select>
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+        <br>
+        <div class="input-field col s12">
+            <h6>You rarely get carried away by fantasies and ideas</h6>
+            <select>
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select>
+        </div>
+        <br>
+    </div>
+
+</body>
+<script>
+
+    $(document).ready(function () {
+        $('select').formSelect();
+        $('input.autocomplete').autocomplete({
+            data: {
+                "Apple": null,
+                "Microsoft": null,
+                "Google": 'https://placehold.it/250x250'
+            },
+        });
+    });
+</script>
+
+</html>
