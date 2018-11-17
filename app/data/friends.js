@@ -1,12 +1,9 @@
-let friendsArr = [];
-
-
-// const info = {
-//     name: 'Veronica',
-//     age: 23
-// }
-// friends.push(info);
-// console.log(friends);
-// console.log(friends[0].name);
+let friendsArr = [
+    {
+     name: "Jane Doe",
+     photo: "https://www.pastepic.xyz/image/pAsK1",
+     scores: ["3","3","3","3","3","3","3","3","3","3"] 
+    }
+];
 
 module.exports = friendsArr;

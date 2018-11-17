@@ -24,11 +24,11 @@
             <br>
             <div class="input-field col s12">
                 <h6>Name (required)</h6>
-                <input type="text" id="autocomplete-input name" class="autocomplete">
+                <input type="text" id="name" class="autocomplete">
             </div>
             <div class="input-field col s12">
                 <h6>Link to your photo (required)</h6>
-                <input type="text" id="autocomplete-input photo" class="autocomplete">
+                <input type="text" id="photo" class="autocomplete">
             </div>
             <br>
             <br>
@@ -39,7 +39,7 @@
         <br>
         <div class="input-field col s12">
             <h6>You prefer to stay at home on a friday night than going out to clubs</h6>
-            <select>
+            <select id="question1">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -51,7 +51,7 @@
         <br>
         <div class="input-field col s12">
             <h6>You overthink decisions you made during the day</h6>
-            <select>
+            <select id="question2">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -63,7 +63,7 @@
         <br>
         <div class="input-field col s12">
             <h6>You are willing to try things out of your comfort zone</h6>
-            <select>
+            <select id="question3">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -75,7 +75,7 @@
         <br>
         <div class="input-field col s12">
             <h6>You relate easily with others feelings</h6>
-            <select>
+            <select id="question4">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -87,7 +87,7 @@
         <br>
         <div class="input-field col s12">
             <h6>You prefer outdoor activities rather than indoor activities</h6>
-            <select>
+            <select id="question5">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -99,7 +99,7 @@
         <br>
         <div class="input-field col s12">
             <h6>People can rarely upset you</h6>
-            <select>
+            <select id="question6">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -111,7 +111,7 @@
         <br>
         <div class="input-field col s12">
             <h6>You like group activities</h6>
-            <select>
+            <select id="question7">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -123,7 +123,7 @@
         <br>
         <div class="input-field col s12">
             <h6>You relay more in your experience than your imagination</h6>
-            <select>
+            <select id="question8">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -135,7 +135,7 @@
         <br>
         <div class="input-field col s12">
             <h6>You respect other's view easily</h6>
-            <select>
+            <select id="question9">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -147,7 +147,7 @@
         <br>
         <div class="input-field col s12">
             <h6>You rarely get carried away by fantasies and ideas</h6>
-            <select>
+            <select id="question10">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -156,9 +156,22 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select>
         </div>
-        <br>
+    </div>
+    <br>
     </div>
 
+    <br>
+    <div class="row center">
+        <a class="submit btn-large waves-effect waves-light lime accent-4">SUBMIT</a>
+    </div>
+
+    <footer class="footer">
+        <div class="container center">
+            <a href="/api/friends">API Friends | </a>
+            <a href="#">Github Repo</a>
+        </div>
+    </footer>
+    <br>
 </body>
 <script>
 
@@ -170,6 +183,35 @@
                 "Microsoft": null,
                 "Google": 'https://placehold.it/250x250'
             },
+        });
+        $(".submit").on("click", (event) => {
+            event.preventDefault();
+
+            const newFriend = {
+                name: $("#name").val().trim(),
+                photo: $("#photo").val().trim(),
+                scores: [
+                    $("#question1").val().trim(),
+                    $("#question2").val().trim(),
+                    $("#question3").val().trim(),
+                    $("#question4").val().trim(),
+                    $("#question5").val().trim(),
+                    $("#question6").val().trim(),
+                    $("#question7").val().trim(),
+                    $("#question8").val().trim(),
+                    $("#question9").val().trim(),
+                    $("#question10").val().trim()
+                ]
+            }
+
+            console.log(newFriend);
+
+            $.post("/api/friends", newFriend, (data) => {
+                if (data) {
+                    console.log("Friend added");
+                    console.log(data);
+                }
+            });
         });
     });
 </script>
