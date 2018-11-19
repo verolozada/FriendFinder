@@ -1,6 +1,5 @@
 const friendsData = require("../data/friends");
-// const multer = require('multer'); // v1.0.5
-// const upload = multer(); // for parsing multipart/form-data
+
 
 module.exports = (app) => {
     app.get("/api/friends", (req, res) => {
@@ -8,12 +7,32 @@ module.exports = (app) => {
     });
 
     app.post("/api/friends", (req, res) => {
-        console.log("in post",req.body)
-        friendsData.push(req.body);
-        res.json(req.body);
+        // console.log("in post", req.body)
+        const newFriend = req.body;
+        // console.log(newFriend);
+        const newScore = newFriend.scores;
+        let match = {
+            name: '',
+            photo: '',
+            score: 0
+        };
+
+        friendsData.forEach(friend => {
+            let totalDiff = 0;
+            newScore.forEach(position => {
+                totalDiff += Math.abs(parseInt(friend.scores[position]) - parseInt(newScore[position]))
+            });
+            if (match.score == 0) {
+                match.score = totalDiff;
+                match.name = friend.name
+                match.photo = friend.photo;
+            } else if (totalDiff < match.score) {
+                match.score = totalDiff
+                match.name = friend.name;
+                match.photo = friend.photo;
+            }
+        });
+        friendsData.push(newFriend);
+        res.json(match);
     });
-    // app.post('/api/friends', upload.array(), function (req, res, next) {
-    //     console.log(req.body);
-    //     res.json(req.body);
-    // });
 };

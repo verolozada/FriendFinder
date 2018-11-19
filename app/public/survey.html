@@ -165,10 +165,22 @@
         <a class="submit btn-large waves-effect waves-light lime accent-4">SUBMIT</a>
     </div>
 
+    <!-- Modal Trigger -->
+    <div class="row center">
+        <a class="waves-effect waves-light btn modal-trigger lime accent-4" href="#modal1">SEE YOUR MATCH</a>
+    </div>
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4 id="matchName"></h4>
+            <img class="responsive-img pic" id="matchPhoto" src="">
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="container center">
             <a href="/api/friends">API Friends | </a>
-            <a href="#">Github Repo</a>
+            <a href="https://github.com/verolozada/FriendFinder">Github Repo</a>
         </div>
     </footer>
     <br>
@@ -202,17 +214,31 @@
                     $("#question9").val().trim(),
                     $("#question10").val().trim()
                 ]
-            }
+            }   
 
-            console.log(newFriend);
+            // const name= $("#name").val().trim();
+            // const photo = $("#photo").val().trim();
+            // const scores = [];
+            // for (let i = 1; i<11; i++){
+            //     scores.push(($`#question${i}`).val());
+            // }
+            // const newFriend = {
+            //     name: name,
+            //     photo: photo,
+            //     scores: scores
+            // }
 
             $.post("/api/friends", newFriend, (data) => {
                 if (data) {
                     console.log("Friend added");
                     console.log(data);
+                    $("#matchName").html(data.name);
+                    $("#matchPhoto").attr("src",data.photo);
                 }
             });
         });
+        $('.modal').modal();
+
     });
 </script>
 
